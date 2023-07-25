@@ -17,11 +17,11 @@ const winStates = [
 function handleMove(position) {
     if (gameOver) return;
         
-    if (board[position] == '') {
+    if (board[position] === '') {
       board[position] = symbols[playerTime];
       gameOver = isWin();
 
-      if (!gameOver) playerTime = (playerTime == 0) ? 1 : 0;   
+      if (!gameOver) playerTime = (playerTime === 0) ? 1 : 0;   
     }
 
     return gameOver;
@@ -46,3 +46,20 @@ function isWin() {
 
   return isWinning;
 }
+
+const btnRestart = document.querySelector('.restart');
+btnRestart.addEventListener('click', restartGame);
+
+function restartGame() {
+  board = ['', '', '', '', '', '', '', '', ''];
+
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((square) => {
+    square.innerHTML = '';
+  });
+
+  gameOver = false;
+  playerTime = 0;
+}
+
+
