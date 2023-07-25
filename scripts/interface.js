@@ -13,7 +13,7 @@ function handleClick(event){
 
   if(handleMove(position)){
     setTimeout(() => {
-      alert("Fim do Jogo - O Vencedor foi " + playerTime);
+      alert("Fim do Jogo - O Vencedor foi o jogador" + (playerTime + 1));
     }, 10);
   }
   updateSquares(position);
